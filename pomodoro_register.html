@@ -3,9 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title>
+    <title>Login & Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .form {
+            display: none;
+        }
+        .form.active {
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h2 id="formTitle">Login</h2>
+        <div id="loginForm" class="form active">
+            <input type="text" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
+        </div>
+        <div id="registerForm" class="form">
+            <input type="text" id="registerName" placeholder="Full Name" required>
+            <input type="text" id="registerEmail" placeholder="Email" required>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            document.getElementById("loginForm").classList.toggle("active");
+            document.getElementById("registerForm").classList.toggle("active");
+            document.getElementById("formTitle").textContent = 
+                document.getElementById("loginForm").classList.contains("active") ? "Login" : "Register";
+        }
+
+        function login() {
+            alert("Login successful");
+            window.location.href = "pomodoro.html";  // Redirect to pomodoro.html
+        }
+
+        function register() {
+            alert("Registration successful");
+            window.location.href = "poomodoro.html";  // Redirect to pomodoro.html
+        }
+    </script>
 </body>
 </html>
